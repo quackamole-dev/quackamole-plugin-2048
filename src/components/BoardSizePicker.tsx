@@ -9,7 +9,6 @@ const BoardSizePicker: React.FC = () => {
 
   return (
     <div>
-      <h2>Board size</h2>
       <div className="size-picker">
         {supportedBoardSizes.map(size => (
           <button key={size} onClick={() => dispatch(resetAction(size))}>

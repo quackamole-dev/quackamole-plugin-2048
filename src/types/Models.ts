@@ -1,5 +1,5 @@
-import { BoardType } from '../functions/board';
-import { ActionType } from './ActionType';
+import { BoardType } from '../functions/board.js';
+import { ActionType } from './ActionType.js';
 
 export interface ActionModel {
   type: ActionType;

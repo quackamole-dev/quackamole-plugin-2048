@@ -5,7 +5,7 @@ export const animationDuration = 100;
 export const defaultBoardSize = 4;
 
 /** A list of supported board sizes. */
-export const supportedBoardSizes = [3, 4, 5, 6];
+export const supportedBoardSizes = [4, 5, 6];
 
 /** Tile value of the victorious tile. */
 export const victoryTileValue = 2048;

@@ -1,4 +1,6 @@
 import React, { CSSProperties, useMemo } from 'react';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import clsx from 'clsx';
 
 import {
@@ -47,7 +49,7 @@ const BoardTile: React.FC<BoardTileProps> = ({ value, animations }) => {
     }
 
     const value: CSSProperties = {
-      transition: animationDuration + 'ms ease-in-out all',
+      transition: `${animationDuration}'ms ease-in-out all`,
     };
 
     switch (moveAnimation.direction) {
@@ -72,7 +74,7 @@ const BoardTile: React.FC<BoardTileProps> = ({ value, animations }) => {
     <div className="board-tile">
       {value !== 0 && (
         <div
-          className={clsx('board-tile-value', 'board-tile-' + value, {
+          className={clsx('board-tile-value', `board-tile-${value}`, {
             'board-tile-new': !!newAnimation,
             'board-tile-merge': !!mergeAnimation,
           })}

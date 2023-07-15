@@ -23,14 +23,11 @@ function newTile(board: BoardType): NewTileResult {
 
   let index: number | undefined = undefined;
 
-  while (true) {
+  do {
     index = Math.floor(Math.random() * board.length);
-    if (board[index] === 0) {
-      board[index] = newTileValue();
-      break;
-    }
-  }
-
+  } while (board[index] !== 0)
+  board[index] = newTileValue();
+  
   return {
     board,
     index,
@@ -152,7 +149,7 @@ function rotateAnimations(
       break;
   }
 
-  for (let animation of animations) {
+  for (const animation of animations) {
     animation.index = getRotatedIndex(animation.index, boardSize, direction);
   }
 

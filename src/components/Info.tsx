@@ -1,20 +1,34 @@
 import React from 'react';
+import { FaInfoCircle } from 'react-icons/fa';
+import { Tooltip } from 'react-tooltip';
+
 
 const Info: React.FC = () => {
-  return (
+
+  const infoJSX = (
     <div className="info">
       <h2>About</h2>
       <p>
-        This is a reimplementation of Gabriele Cirulli's excellent{' '}
-        <a href="https://play2048.co/">2048</a> game, built with React, Redux
-        and TypeScript. Unlike other React-based implementations, only
-        functional components are used here. This project doesn't rely on canvas
-        or element refs.
+        What you see here is a fork of a reimplementation of Gabriele Cirulli's original <a href="https://play2048.co/">2048</a> game.
       </p>
       <p>
-        Developed by <a href="https://github.com/mat-sz">Mat Sz</a>. Source code
-        available at <a href="https://github.com/mat-sz/2048">mat-sz/2048</a>.
+        This fork was created with the intent of being used as a 'quackamole' plugin.
       </p>
+      <p>
+        <a href="https://github.com/mat-sz/2048">Source code of reimplementation</a>.
+      </p>
+      <p>
+        <a href="https://github.com/quackamole-dev/quackamole-plugin-2048">Source code of this fork</a>.
+      </p>
+    </div>
+  );
+  
+  return (
+    <div className="info-icon">
+      <FaInfoCircle className='tt-anchor' />
+      <Tooltip anchorSelect=".tt-anchor" place="bottom" clickable>
+        {infoJSX}
+      </Tooltip>
     </div>
   );
 };

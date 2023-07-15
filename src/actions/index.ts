@@ -1,6 +1,6 @@
-import { ActionModel } from '../types/Models';
 import { ActionType } from '../types/ActionType';
 import { Direction } from '../types/Direction';
+import { ActionModel } from '../types/Models';
 
 export function resetAction(size = 4): ActionModel {
   return {

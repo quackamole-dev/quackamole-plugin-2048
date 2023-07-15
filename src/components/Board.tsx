@@ -1,13 +1,12 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { moveAction } from '../actions';
+import { animationDuration } from '../config';
+import { BoardType } from '../functions/board';
 import { StateType } from '../reducers';
+import { Animation, AnimationType } from '../types/Animations';
 import { Direction } from '../types/Direction';
 import { Point } from '../types/Models';
-import { BoardType } from '../functions/board';
-import { Animation, AnimationType } from '../types/Animations';
-import { animationDuration } from '../config';
-import { moveAction } from '../actions';
 import BoardTile from './BoardTile';
 import Overlay from './Overlay';
 
@@ -27,25 +26,25 @@ const Board: React.FC = () => {
   const [renderedBoard, setRenderedBoard] = useState(board);
   const [renderedAnimations, setRenderedAnimations] = useState<Animation[]>([]);
   const lastBoard = useRef<BoardType>([...board]);
-  const animationTimeout = useRef<any>();
+  const animationTimeout = useRef<unknown>();
 
   useEffect(() => {
     const keydownListener = (e: KeyboardEvent) => {
       e.preventDefault();
 
       switch (e.key) {
-        case 'ArrowDown':
-          onMove(Direction.DOWN);
-          break;
-        case 'ArrowUp':
-          onMove(Direction.UP);
-          break;
-        case 'ArrowLeft':
-          onMove(Direction.LEFT);
-          break;
-        case 'ArrowRight':
-          onMove(Direction.RIGHT);
-          break;
+      case 'ArrowDown':
+        onMove(Direction.DOWN);
+        break;
+      case 'ArrowUp':
+        onMove(Direction.UP);
+        break;
+      case 'ArrowLeft':
+        onMove(Direction.LEFT);
+        break;
+      case 'ArrowRight':
+        onMove(Direction.RIGHT);
+        break;
       }
     };
 
@@ -140,6 +139,8 @@ const Board: React.FC = () => {
       setRenderedBoard(lastBoard.current);
       setRenderedAnimations(moveAnimations);
 
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       clearTimeout(animationTimeout.current);
       animationTimeout.current = setTimeout(() => {
         setRenderedAnimations(otherAnimations);
@@ -155,8 +156,8 @@ const Board: React.FC = () => {
 
   return (
     <div
-      className={`board board-${boardSize}`}
-      style={{ '--board-size': boardSize } as any}
+      className={`board board-${String(boardSize)}`}
+      style={{ '--board-size': boardSize } as unknown as React.CSSProperties}
       onMouseDown={onMouseStart}
       onMouseUp={onMouseEnd}
       onMouseLeave={onMouseEnd}

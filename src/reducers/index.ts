@@ -65,7 +65,7 @@ function initializeState(): StateType {
   };
 }
 
-let initialState: StateType = initializeState();
+const initialState: StateType = initializeState();
 
 export type StoreType = Store<StateType, ActionModel>;
 

@@ -7,7 +7,7 @@ export function getStoredData(): StorageModel {
     return {};
   }
 
-  let model: StorageModel = {};
+  const model: StorageModel = {};
 
   try {
     const data = JSON.parse(localStorage.getItem(ITEM_NAME) as string);
@@ -27,7 +27,7 @@ export function getStoredData(): StorageModel {
         typeof data.defeat === 'boolean' &&
         typeof data.victoryDismissed === 'boolean'
       ) {
-        for (let value of data.board) {
+        for (const value of data.board) {
           if (typeof value !== 'number') {
             throw new Error('Invalid stored data.');
           }

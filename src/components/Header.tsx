@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { resetAction, undoAction } from '../actions';
 import { StateType } from '../reducers';
+import Info from './Info';
 
 const Header: React.FC = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const Header: React.FC = () => {
     <div className="header">
       <div className="header-row">
         <h1>2048</h1>
+        <Info />
         <div className="header-scores">
           <div className="header-scores-score">
             <div>Score</div>
@@ -36,7 +38,7 @@ const Header: React.FC = () => {
       </div>
       <div className="header-row">
         <div>
-          Join the numbers and get to the <strong>2048 tile!</strong>
+          Get to the <strong>2048 tile!</strong>
         </div>
         <div className="header-buttons">
           <button onClick={undo} disabled={!previousBoard}>

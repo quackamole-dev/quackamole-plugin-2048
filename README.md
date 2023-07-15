@@ -1,3 +1,20 @@
+# Quackamole Plugin multiplayer 2048
+
+Fork of a 2048 game implementation, with a few tweaks to make it suitable for use as a Quackamole plugin.
+
+Not fully adjusted for quackamole yet but the idea is that every user in a quackamole move controls the same game.
+
+Every player makes a move and the one that inevitably causes the gameover is the one that loses.
+
+To keep rounds short, maybe use the 3x3 board?
+
+## Original README below
+---
+---
+---
+---
+---
+
 <img alt="2048" align="left" width="120" hspace="20" src="https://raw.githubusercontent.com/mat-sz/2048/master/public/logo512.png">
 
 # 2048 &bull; [Demo](https://demo.matsz.dev/2048/)
